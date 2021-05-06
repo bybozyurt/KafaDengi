@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1002054111472",
+    "project_id": "kafadengi-e1d4f",
+    "storage_bucket": "kafadengi-e1d4f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1002054111472:android:c413e27e94bda606d47235",
+        "android_client_info": {
+          "package_name": "com.example.calismam"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1002054111472-h4lvqpd09geb6m3ucckrvchi0ts7hg8t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDz7FXdm5wR1hcfWzL4hL5n1d1h-pjkRMs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1002054111472-h4lvqpd09geb6m3ucckrvchi0ts7hg8t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
