@@ -6,6 +6,6 @@
  
  Uygulamaya ait görseller aşağıda verilmiştir.
  
- ![görsel](https://www.hizliresim.com/2yyveh9][img]https://i.hizliresim.com/2yyveh9.png)
+
 
 
