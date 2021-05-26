@@ -1,6 +1,14 @@
 # KafaDengi
 **Etkinlik oluşturma ve etkinliklere katılmaya yönelik sosyal medya uygulaması.**
 
+Bilindik sosyal medya uygulamalarından farklı olarak etkinlik oluşturma ve oluşturulan etkinliklere katılım sağlama sistemi mevcuttur.<br>
+Tıpkı diğer sosyal medya uygulamaları gibi kendine özel Takipleşme, sohbet etme, etkinlik(gönderi)beğenme ve yorum atma gibi bir sosyal medya uygulamasında olması gereken özellikler kullanılmıştır.
+
+Uygulama programlanırken Java dili kullanılmıştır.<br>
+Veritabanı sistemi olarak FireBase Kullanılmıştır.<br>
+Kafa karıştırabilecek ve bilinmesi gereken kodlar yorum satırları ile açıklanmıştır.
+
+
 *Uygulama henüz tamamlanmamıştır.
  Tasarım iyileştirmeleri yapılarak güncellenecektir.*
  
