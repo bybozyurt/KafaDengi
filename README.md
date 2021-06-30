@@ -1,5 +1,5 @@
 # KafaDengi
-**Etkinlik oluşturma ve etkinliklere katılmaya yönelik sosyal medya uygulaması.**
+**Etkinlik oluşturma ve etkinliklere katılmaya yönelik sosyal ağ uygulaması.**
 
 Bilindik sosyal medya uygulamalarından farklı olarak etkinlik oluşturma ve oluşturulan etkinliklere katılım sağlama sistemi mevcuttur.<br>
 Tıpkı diğer sosyal medya uygulamaları gibi kendine özel Takipleşme, sohbet etme, etkinlik(gönderi)beğenme ve yorum atma gibi bir sosyal medya uygulamasında olması gereken özellikler kullanılmıştır.
