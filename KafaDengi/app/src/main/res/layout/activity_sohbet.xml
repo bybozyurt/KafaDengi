@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:background="@color/colorWhite"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SohbetActivity">
+
+
+    <Toolbar
+        android:background="@color/colorWhite"
+        android:id="@+id/toolbar_sohbetActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_profil_sohbetActivity"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/ic_person"
+            android:scaleType="centerCrop"
+            android:background="@color/colorWhite" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/txt_ad_sohbetActivity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ad"
+                android:textColor="@color/colorBlack"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                />
+
+            <TextView
+                android:id="@+id/txt_durum_sohbetActivity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="durum"
+                android:textColor="#00FF0A"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                />
+
+        </LinearLayout>
+
+    </Toolbar>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyler_view_sohbetActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar_sohbetActivity"/>
+
+    <LinearLayout
+        android:id="@+id/linearLayout_sohbetActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:background="@drawable/background_input">
+
+        <EditText
+            android:id="@+id/edt_mesaj_sohbetActivity"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:hint="Mesaj yaz"
+            android:textColorHint="@color/colorDivider"
+            android:textColor="@color/colorBlack"
+            android:background="@null"
+            android:layout_weight="1"
+            />
+
+        <ImageButton
+            android:id="@+id/img_btn_gonder_sohbetActivity"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_gonder"
+            android:background="@null"/>
+
+
+
+
+
+
+
+    </LinearLayout>
+
+
+
+
+
+
+
+
+</RelativeLayout>

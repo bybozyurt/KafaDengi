@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-
     package="com.example.calismam">
-
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -15,7 +13,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Calismam">
-        <activity android:name=".YorumlarActivity"></activity>
+        <activity android:name=".TakipcilerActivity"></activity>
+        <activity android:name=".SohbetActivity" />
+        <activity android:name=".ProfilDuzenleActivity" />
+        <activity android:name=".YorumlarActivity" />
         <activity android:name=".sifreUnutActivity" />
         <activity android:name=".KayitActivity" />
         <activity android:name=".AnaSayfaActivity" />
@@ -29,9 +30,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
-
 </manifest>
-

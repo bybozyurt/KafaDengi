@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFF"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profil_resmi_etkinlik_ogesi"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@mipmap/ic_launcher"/>
+
+        <TextView
+            android:id="@+id/txt_kullaniciadi_etkinlik_ogesi"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="5dp"
+            android:gravity="center"
+            android:text="Kullanıcı Adı"
+            android:textStyle="bold"
+            android:textColor="@color/colorBlack"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/txt_etkinlik_baslik_etkinlik_ogesi"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Yürüyüş"
+            android:textColor="@color/colorBlack"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/etkinlik_resmi_etkinlik_ogesi"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:paddingTop="5dp"
+        android:src="@mipmap/ic_launcher" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="115dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:layout_gravity="end"
+            android:orientation="vertical">
+
+            <TextView
+                android:gravity=""
+                android:textStyle="bold"
+                android:id="@+id/txt_etkinlik_sehir_etkinlik_ogesi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="İstanbul"
+                android:textColor="@color/colorBlack"
+                />
+            <TextView
+                android:id="@+id/txt_etkinlik_ilce_etkinlik_ogesi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bahcelievler"
+                android:textColor="@color/colorBlack"
+
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_gravity="end"
+            android:gravity="center_vertical"
+            android:layout_width="230dp"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txt_tarih_baslangic_etkinlik_ogesi"
+                android:layout_marginRight="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Baslangic"
+                android:textColor="@color/colorBlack"/>
+
+            <TextView
+                android:text="-"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorBlack"/>
+            <TextView
+                android:id="@+id/txt_tarih_bitis_etkinlik_ogesi"
+                android:layout_marginLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bitis"
+                android:textColor="@color/colorBlack"/>
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+
+                android:id="@+id/more_etkinlik_ogesi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_more"
+
+                />
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/katil_resmi_etkinlik_ogesi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_katil" />
+
+        <TextView
+            android:id="@+id/txt_katil_sayi_etkinlik_ogesi"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="10"
+            android:textColor="@color/colorBlack"/>
+
+        <ImageView
+            android:id="@+id/yorum_resmi_etkinlik_ogesi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:src="@drawable/ic_yorum" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/txt_gonderen_etkinlik_ogesi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gönderen"
+            android:textStyle="bold"
+            android:textColor="@color/colorBlack"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_weight="1"/>
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txt_yorumlari_gor_etkinlik_ogesi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="20 yorumun tümünü gör"
+        android:textColor="@color/colorBlack"/>
+
+
+
+</LinearLayout>

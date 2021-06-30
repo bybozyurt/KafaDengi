@@ -35,7 +35,7 @@ public class KayitActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kayit);
 
-        setTitle("KAFA DENGİ");
+        setTitle("KAFADENGİ");
 
         firebaseAuth = FirebaseAuth.getInstance();
         FirebaseDatabase database = FirebaseDatabase.getInstance();

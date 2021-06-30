@@ -39,16 +39,38 @@
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/btn_takipEt_oge"
-        android:layout_width="wrap_content"
-        android:layout_height="38dp"
-        android:text="Takip Et"
-        android:textColor="#EFE6E6"
-        android:layout_alignParentEnd="true"
+    <LinearLayout
+        android:layout_marginLeft="200dp"
         android:layout_centerVertical="true"
-        android:visibility="gone"
-        />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <ImageButton
+            android:id="@+id/img_btn_mesaj_kullaniciOgesi"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:src="@drawable/ic_gelenkutusu"
+            android:background="@null"/>
+
+        <Button
+            android:id="@+id/btn_takipEt_oge"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:text="Takip Et"
+            android:textColor="#EFE6E6"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:visibility="gone"
+            />
+
+
+
+
+    </LinearLayout>
+
+
 
 
 

@@ -12,13 +12,13 @@
 
 
 
-    <androidx.appcompat.widget.Toolbar
-        android:background="@color/colorBlack"
+    <Toolbar
+        android:background="@color/colorDivider"
         android:id="@+id/toolbar_yorumlarActivity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    </androidx.appcompat.widget.Toolbar>
+    </Toolbar>
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -48,12 +48,13 @@
         <EditText
             android:id="@+id/edt_yorum_yorumlarActivity"
             android:hint="Bir Yorum ekleyin..."
+            android:textColorHint="@color/colorDivider"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
-            android:background="#C1B9B9"
+            android:background="@color/colorWhite"
             android:layout_toRightOf="@+id/profil_resmi_yorumlarActivity"
             android:layout_toLeftOf="@+id/txt_gonder_yorumlarActivity"/>
 

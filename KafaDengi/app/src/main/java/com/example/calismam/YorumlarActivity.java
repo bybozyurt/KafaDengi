@@ -2,7 +2,7 @@ package com.example.calismam;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -12,9 +12,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 
 import com.bumptech.glide.Glide;
@@ -36,6 +36,7 @@ import java.util.List;
 public class YorumlarActivity extends AppCompatActivity {
 
 
+    Toolbar toolbar;
     private RecyclerView recyclerView;
     private YorumAdapter yorumAdapter;
     private List<Yorum> yorumListesi;
@@ -44,7 +45,7 @@ public class YorumlarActivity extends AppCompatActivity {
     ImageView profil_resmi;
     TextView txt_gonder;
 
-    String gonderiId;
+    String etkinlikId;
     String gonderenId;
 
     FirebaseUser mevcutKullanici;
@@ -55,7 +56,12 @@ public class YorumlarActivity extends AppCompatActivity {
         setContentView(R.layout.activity_yorumlar);
 
 
-       /*Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_yorumlarActivity);
+        Toolbar toolbar = findViewById(R.id.toolbar_yorumlarActivity);
+        toolbar.setTitle("Yorumlar");
+        setTitle("KAFADENGİ");
+
+        /*
+       Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_yorumlarActivity);
        setSupportActionBar(toolbar);
        getSupportActionBar().setTitle("Yorumlar");
        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -64,16 +70,21 @@ public class YorumlarActivity extends AppCompatActivity {
            public void onClick(View v) {
                finish();
            }
-       });
+       });*/
 
-*/
+        Intent intent = getIntent();
+
+        etkinlikId = intent.getStringExtra("etkinlikId");
+        gonderenId = intent.getStringExtra("gonderenId");
+
+
         recyclerView = findViewById(R.id.recyler_view_yorumlarActivity);
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
 
         yorumListesi = new ArrayList<>();
-        yorumAdapter = new YorumAdapter(this,yorumListesi);
+        yorumAdapter = new YorumAdapter(this,yorumListesi, etkinlikId);
         recyclerView.setAdapter(yorumAdapter);
 
 
@@ -83,10 +94,7 @@ public class YorumlarActivity extends AppCompatActivity {
 
         mevcutKullanici = FirebaseAuth.getInstance().getCurrentUser();
 
-        Intent intent = getIntent();
 
-        gonderiId = intent.getStringExtra("gonderiId");
-        gonderenId = intent.getStringExtra("gonderenId");
 
         txt_gonder.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,14 +119,36 @@ public class YorumlarActivity extends AppCompatActivity {
     private void yorumEkle() {
 
         DatabaseReference yorumlarYolu = FirebaseDatabase.getInstance().getReference("Yorumlar")
-                .child(gonderiId);
+                .child(etkinlikId);
+
+        String yorumid = yorumlarYolu.push().getKey();
+
 
         HashMap<String,Object> hashMap = new HashMap<>();
         hashMap.put("yorum",edt_yorum_ekle.getText().toString());
         hashMap.put("gonderen",mevcutKullanici.getUid());
+        hashMap.put("yorumid",yorumid);
 
-        yorumlarYolu.push().setValue(hashMap);
+
+        yorumlarYolu.child(yorumid).setValue(hashMap);
+        eklenenBildirimler();
         edt_yorum_ekle.setText("");
+    }
+//şüpheli edt*
+    private void eklenenBildirimler(){
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Bildirimler")
+                .child(gonderenId);
+
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("kullaniciId",mevcutKullanici.getUid());
+        hashMap.put("text","yorum: "+edt_yorum_ekle.getText().toString());
+        hashMap.put("etkinlikId", etkinlikId);
+        hashMap.put("isGonderi",true);
+
+        databaseReference.push().setValue(hashMap);
+
+
+
     }
 
     private void resimAl(){
@@ -145,7 +175,7 @@ public class YorumlarActivity extends AppCompatActivity {
     private void yorumlariOku(){
 
         DatabaseReference yorumlariOkumaYolu = FirebaseDatabase.getInstance().getReference("Yorumlar")
-                .child(gonderiId);
+                .child(etkinlikId);
 
         yorumlariOkumaYolu.addValueEventListener(new ValueEventListener() {
             @Override

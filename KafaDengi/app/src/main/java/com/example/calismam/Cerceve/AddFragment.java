@@ -1,10 +1,8 @@
 package com.example.calismam.Cerceve;
 
 import android.Manifest;
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -41,8 +39,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 import com.squareup.picasso.Picasso;
-import com.theartofdev.edmodo.cropper.CropImage;
-import com.theartofdev.edmodo.cropper.CropImageView;
+
 import static android.app.Activity.RESULT_OK;
 
 import java.util.HashMap;
@@ -61,48 +58,20 @@ public class AddFragment extends Fragment {
     TextView textView;
     EditText Etkinlik_baslik, Etkinlik_min, Etkinlik_max, Etkinlik_baslangic, Etkinlik_bitis, Etkinlik_sehir, Etkinlik_ilce, Etkinlik_adres,
     Etkinlik_detay, Etkinlik_ucret;
-    ImageView gonderi_resmi;
+    ImageView etkinlik_resmi;
     Button btn_yukle;
 
 
 
 
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public AddFragment() {
-        // Required empty public constructor
-    }
-
-    public static AddFragment newInstance(String param1, String param2) {
-        AddFragment fragment = new AddFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
-    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
 
         // Inflate the layout for this fragment
         View view = (View) inflater.inflate(R.layout.fragment_add, container, false);
+
+        getActivity().setTitle("Etkinlik Olustur");
 
 
 
@@ -120,9 +89,9 @@ public class AddFragment extends Fragment {
 
         btn_yukle = view.findViewById(R.id.btn_yukle);
 
-        gonderi_resmi = view.findViewById(R.id.yuklenecek_resim);
+        etkinlik_resmi = view.findViewById(R.id.yuklenecek_resim);
 
-        resimYukleYolu = FirebaseStorage.getInstance().getReference("Gonderiler");
+        resimYukleYolu = FirebaseStorage.getInstance().getReference("Etkinlikler");
 
 
         btn_yukle.setOnClickListener(new View.OnClickListener() {
@@ -133,7 +102,7 @@ public class AddFragment extends Fragment {
         });
 
 
-        gonderi_resmi.setOnClickListener(new View.OnClickListener() {
+        etkinlik_resmi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -194,13 +163,13 @@ public class AddFragment extends Fragment {
                         Uri indirmeUrisi = task.getResult();
                         benimUrim = indirmeUrisi.toString();
 
-                        DatabaseReference veriYolu = FirebaseDatabase.getInstance().getReference("Gonderiler");
+                        DatabaseReference veriYolu = FirebaseDatabase.getInstance().getReference("Etkinlikler");
 
-                        String gonderiId = veriYolu.push().getKey();
+                        String etkinlikId = veriYolu.push().getKey();
 
                         HashMap<String, Object> hashMap = new HashMap<>();
-                        hashMap.put("gonderiId",gonderiId);
-                        hashMap.put("gonderiResmi",benimUrim);
+                        hashMap.put("etkinlikId",etkinlikId);
+                        hashMap.put("etkinlikResmi",benimUrim);
                         hashMap.put("gonderen",FirebaseAuth.getInstance().getCurrentUser().getUid());
                         hashMap.put("etkinlik_baslik",Etkinlik_baslik.getText().toString());
                         hashMap.put("etkinlik_adres",Etkinlik_adres.getText().toString());
@@ -208,13 +177,15 @@ public class AddFragment extends Fragment {
                         hashMap.put("etkinlik_bitis",Etkinlik_bitis.getText().toString());
                         hashMap.put("etkinlik_min",Etkinlik_min.getText().toString());
                         hashMap.put("etkinlik_max",Etkinlik_max.getText().toString());
-                        hashMap.put("etkinlik_sehir",Etkinlik_sehir.getText().toString());
+                        hashMap.put("sehir",Etkinlik_sehir.getText().toString());
                         hashMap.put("etkinlik_ilce",Etkinlik_ilce.getText().toString());
                         hashMap.put("etkinlik_ucret",Etkinlik_ucret.getText().toString());
                         hashMap.put("etkinlik_detay",Etkinlik_detay.getText().toString());
 
 
-                        veriYolu.child(gonderiId).setValue(hashMap);
+
+
+                        veriYolu.child(etkinlikId).setValue(hashMap);
 
                         progressDialog.dismiss();
 
@@ -255,7 +226,7 @@ public class AddFragment extends Fragment {
                     .load(resimUri)
                     .centerCrop()
                     .fit()
-                    .into(gonderi_resmi);
+                    .into(etkinlik_resmi);
 
 
 
@@ -265,7 +236,7 @@ public class AddFragment extends Fragment {
                     .start(getContext(), AddFragment.this);*/
 
 
-            //gonderi_resmi.setImageURI(resimUri);
+            //etkinlik_resmi.setImageURI(resimUri);
 
         }
 

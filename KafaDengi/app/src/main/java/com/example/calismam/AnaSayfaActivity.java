@@ -113,8 +113,6 @@ public class AnaSayfaActivity extends AppCompatActivity {
                             editor.putString("profileid", FirebaseAuth.getInstance().getUid());
                             editor.commit();
 
-
-                            //Person Page
                             seciliCerceve = new PersonFragment();
 
                             setTitle("Kullanıcı Profili");

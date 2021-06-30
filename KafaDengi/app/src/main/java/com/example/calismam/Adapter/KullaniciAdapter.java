@@ -1,21 +1,27 @@
 package com.example.calismam.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.calismam.AnaSayfaActivity;
 import com.example.calismam.Cerceve.PersonFragment;
 import com.example.calismam.Model.Kullanici;
 import com.example.calismam.R;
+import com.example.calismam.SohbetActivity;
+import com.example.calismam.TakipcilerActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -24,6 +30,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.HashMap;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -33,10 +40,13 @@ public class KullaniciAdapter extends RecyclerView.Adapter<KullaniciAdapter.View
     private Context mContext;
     private List<Kullanici> mKullanicilar;
     private FirebaseUser firebaseUser;
+    private boolean isfragment;
 
-    public KullaniciAdapter(Context mContext, List<Kullanici> mKullanicilar) {
+
+    public KullaniciAdapter(Context mContext, List<Kullanici> mKullanicilar,boolean isfragment) {
         this.mContext = mContext;
         this.mKullanicilar = mKullanicilar;
+        this.isfragment = isfragment;
     }
 
     @NonNull
@@ -56,6 +66,7 @@ public class KullaniciAdapter extends RecyclerView.Adapter<KullaniciAdapter.View
 
         final Kullanici kullanici = mKullanicilar.get(position);
 
+        //String hisUID = mKullanicilar.get(position).getId();
         holder.btn_takipEt.setVisibility(View.VISIBLE); //gone idi visibile yaptık
         holder.kullaniciadi.setText(kullanici.getKullaniciAdi()); // modelde ki getKullaniciAdi
         holder.ad.setText(kullanici.getAdSoy());
@@ -65,20 +76,49 @@ public class KullaniciAdapter extends RecyclerView.Adapter<KullaniciAdapter.View
 
         if(kullanici.getId().equals(firebaseUser.getUid())){ //Kullanıcı kendisinin yanında takip et butonu görmesin
             holder.btn_takipEt.setVisibility(View.GONE);//butonu görünmez yaptık
+            holder.img_mesaj.setVisibility(View.GONE);
         }
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             //Kullanıcılara tıkladıgımda sharedpref yardımıyla person activitye gidiyoruz
             public void onClick(View v) {
-                SharedPreferences.Editor editor = mContext.getSharedPreferences("PREFS",Context.MODE_PRIVATE).edit();
-                editor.putString("profileid",kullanici.getId());
-                editor.apply();
+                if(isfragment) {
 
-                ((FragmentActivity)mContext).getSupportFragmentManager().beginTransaction().replace(R.id.cerceve_kapsayici,
-                        new PersonFragment()).commit();
+                    
+                    SharedPreferences.Editor editor = mContext.getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit();
+                    editor.putString("profileid", kullanici.getId());
+                    editor.apply();
+
+                    ((FragmentActivity) mContext).getSupportFragmentManager().beginTransaction().replace(R.id.cerceve_kapsayici,
+                            new PersonFragment()).commit();
+                }
+                else {
+
+                    Toast.makeText(mContext, "hesdasdayyo", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(mContext, AnaSayfaActivity.class);
+                    intent.putExtra("gonderenId",kullanici.getId());
+                    mContext.startActivity(intent);
+                }
             }
         });
+
+        holder.img_mesaj.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(mContext, SohbetActivity.class);
+                intent.putExtra("hisUid",kullanici.getId());
+                //intent.putExtra("profileid",kullanici.getId());
+
+                mContext.startActivity(intent);
+            }
+        });
+
+
+
+
+
 
         holder.btn_takipEt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,6 +132,8 @@ public class KullaniciAdapter extends RecyclerView.Adapter<KullaniciAdapter.View
                     //Karşı taraf beni takip ediyorsa takip ettiklerine beni ekleyecek
                     FirebaseDatabase.getInstance().getReference().child("Takip").child(kullanici.getId())
                             .child("Takipciler").child(firebaseUser.getUid()).setValue(true);
+
+                    eklenenBildirimler(kullanici.getId());
 
                 }
                 //Eğer zaten takip ediliyor takip ediyora tıklayınca takipten çıkacak ve buton takip ol a dönüşecek
@@ -108,6 +150,24 @@ public class KullaniciAdapter extends RecyclerView.Adapter<KullaniciAdapter.View
 
     }
 
+    private void eklenenBildirimler(String kullaniciId){
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Bildirimler")
+                .child(kullaniciId);
+
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("kullaniciId",firebaseUser.getUid());
+        hashMap.put("text","seni takip etmeye başladı");
+        hashMap.put("etkinlikId","");
+        hashMap.put("isGonderi",false);
+
+        databaseReference.push().setValue(hashMap);
+
+
+
+    }
+
+
+
     @Override
     public int getItemCount() {
 
@@ -119,6 +179,7 @@ public class KullaniciAdapter extends RecyclerView.Adapter<KullaniciAdapter.View
         public TextView ad;
         public CircleImageView profil_image;
         public Button btn_takipEt;
+        public ImageButton img_mesaj;
 
 
 
@@ -128,6 +189,7 @@ public class KullaniciAdapter extends RecyclerView.Adapter<KullaniciAdapter.View
             ad = itemView.findViewById(R.id.txt_ad_Oge);
             profil_image = itemView.findViewById(R.id.profil_image_oge);
             btn_takipEt = itemView.findViewById(R.id.btn_takipEt_oge);
+            img_mesaj = itemView.findViewById(R.id.img_btn_mesaj_kullaniciOgesi);
 
         }
     }

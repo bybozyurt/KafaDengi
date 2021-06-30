@@ -65,5 +65,7 @@ dependencies {
     //Galeriden Resmi seçerken kırpmak için
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.7.0'
 
+    //implementation 'com.rengwuxian.materialedittext:library2.1.4'
+
 }
 apply plugin: 'com.google.gms.google-services'

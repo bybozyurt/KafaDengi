@@ -44,7 +44,7 @@ public class GirisActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_giris);
 
-        setTitle("KAFA DENGİ");
+        setTitle("KAFADENGİ");
 
         firebaseAuth = FirebaseAuth.getInstance(); //initialize ettik.
         emailText = findViewById(R.id.emailText);

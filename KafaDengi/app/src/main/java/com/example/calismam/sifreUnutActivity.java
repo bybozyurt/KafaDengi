@@ -24,7 +24,7 @@ public class sifreUnutActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sifre_unut);
 
-        setTitle("KAFA DENGİ");
+        setTitle("KAFADENGİ");
 
         firebaseAuth = FirebaseAuth.getInstance();
         unutEmail = findViewById(R.id.unutEmail);
@@ -35,7 +35,7 @@ public class sifreUnutActivity extends AppCompatActivity {
         String email = unutEmail.getText().toString();
 
         if (email.equals("")){
-            Toast.makeText(this, "Fill in the email field", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "E-mail adresinizi giriniz", Toast.LENGTH_SHORT).show();
         }
         else {
             firebaseAuth.sendPasswordResetEmail(email).addOnCompleteListener(new OnCompleteListener<Void>() {
