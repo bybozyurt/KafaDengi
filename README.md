@@ -1,4 +1,4 @@
-# KafaDengi
+# KAFADENGİ
 **Etkinlik oluşturma ve etkinliklere katılmaya yönelik sosyal ağ uygulaması.**
 
 Bilindik sosyal ağ uygulamalarından farklı olarak etkinlik oluşturma ve oluşturulan etkinliklere katılım sağlama sistemi mevcuttur.<br>
