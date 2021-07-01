@@ -37,9 +37,9 @@ Veritabanı sistemi olarak Firebase Kullanılmıştır.<br>
  <img src="https://user-images.githubusercontent.com/51344498/123986263-d382ff00-d9ce-11eb-911f-67a2f7a47844.png" width="450" height="700">
  <img src="https://user-images.githubusercontent.com/51344498/123986283-d67def80-d9ce-11eb-82a5-fd615d496a5f.png" width="450" height="700">
  <img src="https://user-images.githubusercontent.com/51344498/123986290-d7af1c80-d9ce-11eb-9e48-1aba0cd3cf16.png" width="450" height="700">
+ <img src="https://user-images.githubusercontent.com/51344498/124109507-df72cd80-da6f-11eb-8a67-1f911983f868.png" width="450" height="700">
  <img src="https://user-images.githubusercontent.com/51344498/123987941-450f7d00-d9d0-11eb-9005-9ac73280e1a9.png" width="450" height="700">
  <img src="https://user-images.githubusercontent.com/51344498/123988311-9881cb00-d9d0-11eb-90c3-e7f897eb1b51.png" width="450" height="700"> 
- <img src="https://user-images.githubusercontent.com/51344498/124109507-df72cd80-da6f-11eb-8a67-1f911983f868.png" width="450" height="700">
  <img src="https://user-images.githubusercontent.com/51344498/123988358-a1729c80-d9d0-11eb-9ace-f6a86314e8ed.png" width="450" height="700">
  <img src="https://user-images.githubusercontent.com/51344498/123988956-1f36a800-d9d1-11eb-8b9c-cc1bef626b0d.png" width="450" height="700">
  <img src="https://user-images.githubusercontent.com/51344498/123988992-265db600-d9d1-11eb-8fa4-dd94384837af.png" width="450" height="700">
