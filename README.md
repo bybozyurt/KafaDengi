@@ -1,16 +1,17 @@
-# KafaDengi
-**Etkinlik oluşturma ve etkinliklere katılmaya yönelik sosyal medya uygulaması.**
+# KAFADENGİ
+**Etkinlik oluşturma ve etkinliklere katılmaya yönelik sosyal ağ uygulaması.**
 
-Bilindik sosyal medya uygulamalarından farklı olarak etkinlik oluşturma ve oluşturulan etkinliklere katılım sağlama sistemi mevcuttur.<br>
-Tıpkı diğer sosyal medya uygulamaları gibi kendine özel Takipleşme, sohbet etme, etkinlik(gönderi)beğenme ve yorum atma gibi bir sosyal medya uygulamasında olması gereken özellikler kullanılmıştır.
+Bilindik sosyal ağ uygulamalarından farklı olarak etkinlik oluşturma ve oluşturulan etkinliklere katılım sağlama sistemi mevcuttur.<br>
+Tıpkı diğer sosyal ağ uygulamaları gibi kendine özel Takipleşme, sohbet etme ve yorum atma gibi bir sosyal ağ uygulamasında bulunması gereken özellikler kullanılmıştır.
+
+KAFADENGİ uygulaması günümüzde asosyallikten yalnızlaşan insanlara birlikte vakit geçirebilecekleri ilgi alanlarına uygun insanları bulma, tanıma ve bu insanlar ile sosyal aktiviteler yapma fırsatı tanımaktadır. Kullanıcılar tarafından oluşturulan çeşitli sosyal aktiviteler ile bireylerin sosyalleşmeleri amaçlanmaktadır. Gündelik kent hayatının önemli bir parçası olan sosyalleşme kültürünün insanlara aşılanması hedeflenmektedir.
 
 Uygulama programlanırken Java dili kullanılmıştır.<br>
-Veritabanı sistemi olarak FireBase Kullanılmıştır.<br>
-Kafa karıştırabilecek ve bilinmesi gereken kodlar yorum satırları ile açıklanmıştır.
+Veritabanı sistemi olarak Firebase Kullanılmıştır.<br>
 
 
-*Uygulama henüz tamamlanmamıştır.
- Tasarım iyileştirmeleri yapılarak güncellenecektir.*
+
+* Tasarım iyileştirmeleri yapılarak güncellenecektir.
  
  Uygulamaya ait görseller aşağıda verilmiştir.
 
